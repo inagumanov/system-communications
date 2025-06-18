@@ -1,0 +1,54 @@
+{
+  "title": "data_replication.manager",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "uuid",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "minLength": 36,
+      "maxLength": 36
+    },
+    "event_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "produced_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "manager_id": {
+          "type": "string",
+          "description": "UUIDv7",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "surname": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      }
+    },
+    "required": [
+      "manager_id",
+      "name",
+      "surname"
+    ]
+  },
+  "required": [
+    "event_id",
+    "event_name",
+    "produced_at",
+    "payload"
+  ]
+}

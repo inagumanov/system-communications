@@ -1,0 +1,92 @@
+{
+  "title": "data_replication.assignment",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "uuid",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "minLength": 36,
+      "maxLength": 36
+    },
+    "event_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "produced_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "assignment_id": {
+          "type": "string",
+          "description": "UUIDv7",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "teacher_id": {
+          "type": "string",
+          "description": "UUIDv7",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "task": {
+          "type": "object",
+          "task_id": {
+            "type": "string",
+            "description": "UUIDv7",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "answer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "crated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "required": [
+            "task_id",
+            "title",
+            "description",
+            "answer",
+            "updated_at",
+            "crated_at"
+          ]
+        }
+      }
+    },
+    "required": [
+      "assignment_id",
+      "teacher_id",
+      "task"
+    ]
+  },
+  "required": [
+    "event_id",
+    "event_name",
+    "produced_at",
+    "payload"
+  ]
+}
